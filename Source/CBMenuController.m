@@ -50,32 +50,32 @@
 
 -(void)copyLeft {
 	NSPasteboard *board = [NSPasteboard generalPasteboard];
-	[board declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:self];
+    [board declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:self];
 	if([[NSUserDefaults standardUserDefaults] boolForKey:MABCPYCOlOROPTIONS]) //then we want hex string
-		[board setString:[[controller leftRGBColor] HTMLStringValue] forType:NSStringPboardType];
+        [board setString:[[controller leftRGBColor] HTMLStringValue] forType:NSPasteboardTypeString];
 	else
-		[board setString:[[controller leftRGBColor] RGBStringValue] forType:NSStringPboardType];
+        [board setString:[[controller leftRGBColor] RGBStringValue] forType:NSPasteboardTypeString];
 	
 }
 
 -(void)copyRight {
 	NSPasteboard *board = [NSPasteboard generalPasteboard];
-	[board declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:self];
+    [board declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:self];
 	if([[NSUserDefaults standardUserDefaults] boolForKey:MABCPYCOlOROPTIONS]) //then we want hex string
-		[board setString:[[controller rightRGBColor] HTMLStringValue] forType:NSStringPboardType];
+        [board setString:[[controller rightRGBColor] HTMLStringValue] forType:NSPasteboardTypeString];
 	else
-		[board setString:[[controller rightRGBColor] RGBStringValue] forType:NSStringPboardType];
+        [board setString:[[controller rightRGBColor] RGBStringValue] forType:NSPasteboardTypeString];
 	
 }
 
 -(void)copyMixed {
 	NSPasteboard *board = [NSPasteboard generalPasteboard];
-	[board declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:self];
+    [board declareTypes:[NSArray arrayWithObject:NSPasteboardTypeString] owner:self];
 	
 	if([[NSUserDefaults standardUserDefaults] boolForKey:MABCPYCOlOROPTIONS]) //then we want hex string
-		[board setString:[[controller mixedRGBColor] HTMLStringValue] forType:NSStringPboardType];
+        [board setString:[[controller mixedRGBColor] HTMLStringValue] forType:NSPasteboardTypeString];
 	else
-		[board setString:[[controller mixedRGBColor] RGBStringValue] forType:NSStringPboardType];
+        [board setString:[[controller mixedRGBColor] RGBStringValue] forType:NSPasteboardTypeString];
 }
 
 -(NSMenu *)getDockMenu {

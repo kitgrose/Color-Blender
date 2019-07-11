@@ -38,7 +38,7 @@
 		htmlString = [[NSString alloc] initWithFormat:@"%@%%.2x%%02x%%02x", prefix];
 		
 		inputString = (char *) malloc([htmlString length]+1); //+1 for the '\0'
-		strcpy(inputString, [prefix cString]);
+        strcpy(inputString, [prefix cStringUsingEncoding:NSUTF8StringEncoding]);
 		strcat(inputString, "%2x%2x%2x");
 		
 		rgbString = [[NSString alloc] initWithFormat:@"%%i, %%i, %%i"];
@@ -49,7 +49,7 @@
 
 -(id)initWithString:(NSString *)colorVal {
 	if(self = [self init]) {
-		sscanf([colorVal cString], inputString, &r, &g, &b);
+        sscanf([colorVal cStringUsingEncoding:NSUTF8StringEncoding], inputString, &r, &g, &b);
 		rgbColorValue = [NSColor colorWithDeviceRed:(float)r/255.0
 											  green:(float)g/255.0
 											   blue:(float)b/255.0
@@ -63,10 +63,10 @@
 
 -(id)initWithColor:(NSColor *)colorVal {
 	if(self = [self init]) {
-		if([colorVal respondsToSelector:@selector(colorSpace)] && [[colorVal colorSpace] colorSpaceModel] == NSRGBColorSpaceModel) {
+        if([colorVal respondsToSelector:@selector(colorSpace)] && [[colorVal colorSpace] colorSpaceModel] == NSColorSpaceModelRGB) {
 			rgbColorValue = colorVal;
 		} else {
-			rgbColorValue = [colorVal colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+            rgbColorValue = [colorVal colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]];
 		}
 		
 		[rgbColorValue retain];

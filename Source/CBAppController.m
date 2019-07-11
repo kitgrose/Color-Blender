@@ -35,7 +35,7 @@
 	[defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor cyanColor]] forKey:MABLASTLEFTCOLOR];
 	[defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:[NSColor orangeColor]] forKey:MABLASTRIGHTCOLOR];
 	[defaults setObject:[NSNumber numberWithFloat:50.0] forKey:MABLASTBLENDRATIO];
-	[defaults setObject:[NSString stringWithString:@"#"] forKey:MABCOLORPREFIX];
+	[defaults setObject:@"#" forKey:MABCOLORPREFIX];
 	[defaults setObject:[NSNumber numberWithBool:MAB_NONCUSTOMPREFIX] forKey:MAB_PREFIXTYPE];
 	[defaults setObject:[NSNumber numberWithBool:NO] forKey:MABTERMINATEONCLOSE];
 	[defaults setObject:[NSNumber numberWithBool:YES] forKey:MABCPYCOlOROPTIONS];
